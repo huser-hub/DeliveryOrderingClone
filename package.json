@@ -1,0 +1,29 @@
+{
+  "name": "nodetest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "html": "^1.0.0",
+    "mongodb": "^3.3.3",
+    "mongojs": "^3.0.0",
+    "mongoskin": "^2.1.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huser-hub/DeliveryOrderingClone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/huser-hub/DeliveryOrderingClone/issues"
+  },
+  "homepage": "https://github.com/huser-hub/DeliveryOrderingClone#readme"
+}

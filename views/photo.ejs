@@ -1,18 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- <h3>Restaurant page</h3> -->
+<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-<h1>Hello World</h1>
-<h2><%= user.name %></h2>
 <body>
+    <div id="nav-placeholder"></div>
+    <script src="home.js"></script>
+    <script>
+      // setTimeout(function(){
+      //   alert("hit")
+      //        $("#account-btn").attr("class","nav-link active");
+      // }, 10);
+      
 
-<image src="data:image/jpeg;charset=utf-8;base64,  <%= user.photo%>"></image>
+    </script>
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/"><img src="/logo.png" style="width:50px;height:50px;"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
- <form action="/mypost" method="post">
-  First name: <input type="text" name="fname"><br>
-  Last name: <input type="text" name="lname"><br>
-  <input type="submit" value="Submit">
-</form> 
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active" id="home"> -->
 
+      	<!-- <button id="home-btn">home</button> -->
+      <!--   <a id="home-btn" class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" id="account">
+        <a class="nav-link" href="/account">Account</a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li> -->
+   <!--  </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav> -->
+<br><br>
+
+<% if (user) { %>
+<h4>Welcome <%= user.name %> this is your <%= user.visits %> visit! </h4>
+<% } %>
+
+<div id="main-container">
+	<table>
+<% for(var i=0; i < data1.length; i++) { %>
+   <tr>
+     <!-- <td><%= data1[i].name %></td> -->
+
+	<td><a href="/res/<%= data1[i].name %>"><%= data1[i].name %></a></td>
+
+     <td><image src="data:image/jpeg;charset=utf-8;base64,  <%= data1[i].photo%>" style="width:50px;height:60px;"></image>
+</td>
+   </tr>
+<% } %>
+</table>
+<form action="/logout" method="post">
+	<input type="submit" value="Log Out">
+</form>
+</div>
+
+
+<div id="test-container"></div>
 </body>
+
+<script>
+    	$(document).ready(function() {
+
+        var wanted = "home"
+        var data = $.ajax({
+                    type: "GET",
+                    url: "/getme",
+                    data: wanted,
+                    cache: false,
+                    success: function(data){
+                       alert(data);
+                    },
+                    dataType:'json',
+                    error : function(request,error)
+                    {
+                        alert("Request: "+JSON.stringify(request));
+                    }
+                  });
+                // pass data into template and render
+        // var html = new EJS({url: 'home.ejs'}).render(data);
+        // var html = ejs.renderFile("home.ejs",data)
+        // add HTML to the DOM using a <div id="container"></div> wrapper.
+        // document.getElementById("test-container").innerHTML = html;
+    	 $("#home-btn").click(function(){
+        	// $('#account').attr('class', 'nav-item active');
+        	// $('#home').attr('class', 'nav-item');
+
+
+		    });
+		   });
+    </script>
 
 </html>

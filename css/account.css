@@ -1,0 +1,79 @@
+/*.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid gray;
+  padding: 10px;
+}*/
+
+.center{
+  padding:50px 0;
+  color:#888;
+  width:400px;
+  margin:0 auto;
+  text-align:center;
+}
+.center2{
+padding:1px 0;
+  color:#888;
+  width:20px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.in{
+  font-family:'Ubuntu';
+  font-weight:300;
+  border:0;
+  border-bottom:1px solid #ff5407;
+  width:100%;
+  height:36px;
+}
+
+input:focus{
+  outline:none;
+  box-shadow:none;
+}
+
+button{
+  border:0;
+  background:transparent;
+  padding:5px;
+  margin-top:50px;
+  position:relative;
+  outline:0;
+}
+
+.buttonafter:after{
+content:'';
+display:block;
+position:absolute;
+top:8px;
+left:100%; /*should be set to 100% */
+width:0;
+height:0;
+border-color: transparent transparent transparent #14a03d; /*border color should be same as div div background color*/
+border-style: solid;
+border-width: 5px;
+
+}
+
+.forgot{
+  background:#a0a0a0;
+  color:#fff;
+  float:left;
+}
+.register{
+  background:#a0a0a0;
+  color:#fff;
+
+
+}
+.login{
+  background:#a0a0a0;
+  color:#fff;
+  float:right;
+}
+
+.login.buttonafter {
+    background:#14a03d;
+}

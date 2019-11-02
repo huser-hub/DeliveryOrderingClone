@@ -10,7 +10,10 @@ module.exports = {
 		var items = null;
 
 		MongoClient.connect(url, function(err, db) {
-		  if (err) throw err;
+		  if (err) {
+		  	console.log("Please start mongdb using mongod");
+		  	throw err;
+		  }
 		  var dbo = db.db("DeliveryOrderingClone");
 		  // var myobj = [
 		  //   { name: 'Chef Laio', address: 'Highway 71', tags: ["asian","chinese", "dinner"], image: Buffer.from(fs.readFileSync("photos/photo1.jpg")).toString('base64')},
@@ -40,6 +43,31 @@ module.exports = {
 
 		});
 		return items
+	},
+	get_image:  function get_items(res,name){
+  	  	var MongoClient = require('mongodb').MongoClient;
+		var url = "mongodb://localhost:27017/";
+		var fs = require('fs');
+		var items = null;
+
+		MongoClient.connect(url, function(err, db) {
+		  if (err) {
+		  	console.log("Please start mongdb using mongod");
+		  	throw err;
+		  }
+		  var dbo = db.db("DeliveryOrderingClone");
+
+		   dbo.collection("restaurants").find({name:'Chef Laio'}).toArray((err, result) => {
+		    if (err) throw err;
+		    result = result[0]
+		    // console.log("HERE")
+		    // res.render("photo.ejs",user);
+		    res.send(Buffer.from(result.image, 'base64'));
+		    db.close();
+		  });
+
+
+		});
 	}
 
 // console.log(get_items());

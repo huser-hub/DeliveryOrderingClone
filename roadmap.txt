@@ -1,0 +1,37 @@
+[user, password, salt]
+
+hannah mysecretpassword create_salt()
+
+hash'd using sha256 password+salt
+
+wrote salt and hash to DB
+
+[hannah, AB2E31490EA1, 1ab3f5a2a780006f]
+
+--------
+sessions 
+
+hannah 4 cart 2 restaurants. HannahSatOct24 -- sid: asdkjskfnadjkf
+tyler. 2 cart 1 restaurant TylerSatOct24 -- sid: kasjkajfdjkksdf
+
+
+decrypt req TylerSatOct24
+
+search session db instance for TylerSatOct24
+
+if found set session to tyler
+
+return
+--------
+
+A) 
+
+Users ---- Password, Salt, SID ,Session:{Items in cart purchase history saved cc}
+
+B)
+
+Users ---- passwords, salt
+
+Session DB ---- session information(tbd on what will be in a session) keyed by session id
+
+Customer information -- saved CC preferences order history address etc

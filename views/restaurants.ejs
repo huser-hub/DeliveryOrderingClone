@@ -1,0 +1,21 @@
+<% if (user) { %>
+<h4>Welcome <%= user.name %> this is your <%= user.visits %> visit! </h4>
+<% } %>
+
+<table>
+<% for(var i=0; i < data1.length; i++) { %>
+   <tr>
+     <!-- <td><%= data1[i].name %></td> -->
+
+	<td><a id="<%= data1[i].name %>"><%= data1[i].name %></a></td>
+
+     <td><image src="data:image/jpeg;charset=utf-8;base64,  <%= data1[i].photo%>" style="width:50px;height:60px;"></image>
+</td>
+   </tr>
+<% } %>
+</table>
+<script src="restaurants.js"></script>
+
+<form action="/logout" method="post">
+	<input type="submit" value="Log Out">
+</form>
